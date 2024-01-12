@@ -69,7 +69,6 @@ Run this piece of code to see if the install worked:
 
 ```
 import torch
-import pickle 
 
 # Device info
 torch_mem_info = torch.cuda.mem_get_info()
