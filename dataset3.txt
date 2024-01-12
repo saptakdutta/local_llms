@@ -1,0 +1,1 @@
+I need to write a python script to read in a csv file and put the contents into a pandas dataframe. Then create a simple web application to push the contents of the csv to a html file that is statically served. Create a route to render the template

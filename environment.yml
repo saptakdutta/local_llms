@@ -1,0 +1,47 @@
+# to spped thing up install libmamba solver as follows:
+# 1. conda update -n base conda
+# 2. conda install -n base conda-libmamba-solver
+# to create this venv run: conda env create -f environment_2.yml --solver=libmamba || mamba env create -f environment.yml
+# to destroy this venv run: conda remove -n huggingface_transformers --all || mamba remove -n huggingface_transformers --all
+name: huggingface_transformers
+channels:
+- nodefaults
+- conda-forge
+dependencies:
+- python<3.12
+# Conda dependencies go here
+- pandas
+- numpy
+- matplotlib
+- pyarrow
+- pydantic
+- conda-lock
+- pip
+# Pip dependencies go here
+- pip:
+# Install the basic pip goodies for REPL, code formatting, type checking/hints, pretty printing loops & tables etc
+  - black
+  - mypy
+  - tqdm
+  - ipykernel
+  - tabulate
+  - sqlmodel
+# Project related dependencies go here
+  - datetime
+  - scikit-learn
+  - httpx
+  - html2text
+  - huggingface_hub
+  - transformers
+  - ctransformers[cuda]
+  - langchain
+  - playwright
+  - sentence_transformers
+  - faiss-cpu
+  - langchain
+  - langchain-experimental
+
+# Once installs are done run the folowing:
+# pip3 install --upgrade "git+https://github.com/huggingface/transformers" optimum
+# pip3 install --upgrade auto-gptq
+# pip3 install --upgrade langchain langchain-community langchainhub gpt4all chromadb
