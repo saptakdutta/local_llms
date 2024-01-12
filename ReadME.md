@@ -63,6 +63,50 @@ Once the new environment has been created, install the other dependencies like s
 
 You should now be ready to get up and running
 
+## Checking the environment
+
+Run this piece of code to see if the install worked:
+
+```
+import torch
+import pickle 
+
+# Device info
+torch_mem_info = torch.cuda.mem_get_info()
+# setting device on GPU if available, else CPU
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print('Using device:', device)
+print()
+
+#Additional Info when using cuda
+if device.type == 'cuda':
+    print(torch.cuda.get_device_name(0))
+    print('Memory Usage:')
+    print('Globally available:', round(torch_mem_info[0]/1024**3,1), 'GB')
+    print('Total:   ', round(torch_mem_info[1]/1024**3,1), 'GB')
+
+# Check GPU compatibility with bfloat16 (pre turing GPUs probably won't be able to use it)
+compute_dtype = getattr(torch, 'float16')
+if compute_dtype == torch.float16 and True:
+    major, _ = torch.cuda.get_device_capability()
+    if major >= 8:
+        print("=" * 80)
+        print("Your GPU supports bfloat16: accelerate training with bf16=True")
+        print("=" * 80)
+```
+
+The output should be as follows:
+```
+Using device: cuda
+
+NVIDIA GeForce RTX 3090
+Memory Usage:
+Globally available: 23.1 GB
+Total:    23.7 GB
+================================================================================
+Your GPU supports bfloat16: accelerate training with bf16=True
+```
+
 # Huggingface model locations
 By default on a debian based system, the models from huggingface hub will be installed to: 
 
