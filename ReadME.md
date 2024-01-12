@@ -15,6 +15,24 @@ The models used in this repository are:
 
 All models in this repo are run using the GPTQ format. 
 
+# Directory Structure
+The local repo must have the following top level directrory layout: 
+
+    .
+    ├── /data
+    │   ├── dataset.txt   
+    │   ├── dataset3.txt  
+    │   ├── dataset4.txt  
+    │   └── chinook.db
+    ├── /other_scripts                    
+    │   ├── main_mixtral.py   
+    │   └── main_nous.py
+    ├── main.py
+    ├── main.ipynb
+    ├── LICENSE
+    ├── environment.yml      
+    └── README.md         
+
 # Getting started
 In order to set up this project you will need the repository, and a virtual environment that contains all the required software dependencies.
 
