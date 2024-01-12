@@ -201,7 +201,7 @@ from langchain.agents.agent_types import AgentType
 
 #%% Now langchain example
 #Read in the context dataset
-with open('dataset4.txt') as f:
+with open('data/dataset4.txt') as f:
     context = f.readlines()
 
 #Turn the context document into a langchain.document.object
@@ -326,7 +326,7 @@ print(chain_output['text'])
 
 #%% Now we need to check to see if this would work on a database for querying
 # load in the DB
-bldg_db = SQLDatabase.from_uri("sqlite:///chinook.db")
+bldg_db = SQLDatabase.from_uri("sqlite:///data/chinook.db")
 
 # Create agent executor for database 
 agent_executor = create_sql_agent(
