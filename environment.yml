@@ -3,19 +3,17 @@
 # 2. conda install -n base conda-libmamba-solver
 # to create this venv run: conda env create -f environment_2.yml --solver=libmamba || mamba env create -f environment.yml
 # to destroy this venv run: conda remove -n huggingface_transformers --all || mamba remove -n huggingface_transformers --all
-name: huggingface_transformers
+name: local_llms
 channels:
 - nodefaults
 - conda-forge
 dependencies:
-- python<3.12
+- python
 # Conda dependencies go here
 - pandas
 - numpy
 - matplotlib
 - pyarrow
-- pydantic
-- conda-lock
 - pip
 # Pip dependencies go here
 - pip:
@@ -29,17 +27,14 @@ dependencies:
 # Project related dependencies go here
   - datetime
   - scikit-learn
-  - httpx
   - html2text
   - huggingface_hub
   - transformers
-  - ctransformers[cuda]
   - langchain
+  - langchain_experimental
   - playwright
   - sentence_transformers
   - faiss-cpu
-  - langchain
-  - langchain-experimental
 
 # Once installs are done run the folowing:
 # pip3 install --upgrade "git+https://github.com/huggingface/transformers" optimum
